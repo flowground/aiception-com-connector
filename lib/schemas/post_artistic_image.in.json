@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "requestBody": {
+            "properties": {
+                "async": {
+                    "default": true,
+                    "type": "boolean"
+                },
+                "image_url": {
+                    "type": "string"
+                },
+                "style_url": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "image_url",
+                "style_url"
+            ],
+            "type": "object"
+        }
+    }
+}

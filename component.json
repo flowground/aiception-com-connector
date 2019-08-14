@@ -1,0 +1,212 @@
+{
+    "title": "AIception Interactive",
+    "description": "Here you can play & test & prototype all the endpoints using just your browser! Go ahead!",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/aiception.com/1.0.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://aiception.com/api/v2.1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_username": {
+                "label": "Username (UserSecurity)",
+                "viewClass": "TextFieldView"
+            },
+            "auth_password": {
+                "label": "Password (UserSecurity)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "post_adult_content": {
+            "main": "./lib/actions/post_adult_content.js",
+            "title": "Image contains nudity or sexually explicit content? [ image_url -> id ]",
+            "description": "Creates a new adult_content task that tells the if the image has nudity or sexual content.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_adult_content.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_adult_content__taskId_": {
+            "main": "./lib/actions/get_adult_content__taskId_.js",
+            "title": "Gets the adult_content task [ id -> adult content task ]",
+            "description": "Gets the adult_content task.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_adult_content__taskId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_artistic_image": {
+            "main": "./lib/actions/post_artistic_image.js",
+            "title": "Create an artistic image [ image_url, style_url -> id ]",
+            "description": "Given an image content and a style image create a new stylized image of the content.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_artistic_image.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_artistic_image__taskId_": {
+            "main": "./lib/actions/get_artistic_image__taskId_.js",
+            "title": "Gets a artistic image by task id [ id -> artistic image task ]",
+            "description": "The artistic_image will have the urls of the stylized images.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_artistic_image__taskId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_detect_object": {
+            "main": "./lib/actions/post_detect_object.js",
+            "title": "What is that object? [ image_url -> id ]",
+            "description": "Creates a new detect object task that recognizes the object in the image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_detect_object.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_detect_object__taskId_": {
+            "main": "./lib/actions/get_detect_object__taskId_.js",
+            "title": "Gets the detect_object task [ id -> detect object task]",
+            "description": "Gets the detect_object task.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_detect_object__taskId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_face": {
+            "main": "./lib/actions/post_face.js",
+            "title": "Find all faces in the image [ image_url -> id ]",
+            "description": "Get a list of all the locations of the faces in the image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_face.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_face__taskId_": {
+            "main": "./lib/actions/get_face__taskId_.js",
+            "title": "Gets the face task [ id -> face task ]",
+            "description": "Gets the face task.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_face__taskId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post_face_age": {
+            "main": "./lib/actions/post_face_age.js",
+            "title": "How old is the person in the image? [ image_url -> id ]",
+            "description": "Creates a new face age task that approximates the age of the person in the image.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post_face_age.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get_face_age__taskId_": {
+            "main": "./lib/actions/get_face_age__taskId_.js",
+            "title": "Gets the face_age task [ id -> face age task ]",
+            "description": "Gets the face_age task.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get_face_age__taskId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
