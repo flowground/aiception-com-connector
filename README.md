@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the AIception Interactive API (version 1.0.0).
 
 Generated from: https://api.apis.guru/v2/specs/aiception.com/1.0.0/swagger.json<br/>
-Generated at: 2019-08-14T12:19:51+03:00
+Generated at: 2019-08-23T19:30:48+03:00
 
 ## API Description
 
